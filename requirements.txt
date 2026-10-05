@@ -1,0 +1,8 @@
+flask>=3.0.0
+flask-cors>=4.0.0
+librosa>=0.10.0
+torch
+torchvision
+scikit-learn>=1.5.0
+numpy>=1.26.0
+pandas>=2.2.0

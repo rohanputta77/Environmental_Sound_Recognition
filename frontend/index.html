@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Sound Classification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Environmental Sound Classification</h1>
+            <nav class="top-nav">
+                <a href="/" class="active">Predict Sound</a>
+                <a href="/reports">Model Reports</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="form-group">
+                <label for="audio-upload">Upload Audio File (.wav):</label>
+                <input type="file" id="audio-upload" accept="audio/wav">
+            </div>
+
+            <button id="predict-btn">Predict Sound</button>
+            
+            <div id="loading" class="hidden">
+                <p>Analyzing...</p>
+            </div>
+
+            <div id="result-box" class="hidden">
+                <p>Prediction: <span id="prediction-text"></span></p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

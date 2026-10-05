@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Reports</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Environmental Sound Classification</h1>
+            <nav class="top-nav">
+                <a href="/">Predict Sound</a>
+                <a href="/reports" class="active">Model Reports</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Training Report</h2>
+            
+            <table class="report-table">
+                <tbody>
+                    <tr>
+                        <th>Dataset</th>
+                        <td>ESC-50 (2,000 files, 50 classes)</td>
+                    </tr>
+                    <tr>
+                        <th>Feature Extractor</th>
+                        <td>Pre-trained ResNet-18 (PyTorch)</td>
+                    </tr>
+                    <tr>
+                        <th>Input Format</th>
+                        <td>Mel-Spectrogram (224x224 RGB Image)</td>
+                    </tr>
+                    <tr>
+                        <th>Classifier</th>
+                        <td>Support Vector Machine (Linear Kernel)</td>
+                    </tr>
+                    <tr>
+                        <th>Test Accuracy</th>
+                        <td style="font-weight: bold; color: #0056b3;">50.75%</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="report-note">
+                <strong>Note:</strong> Baseline random guessing for a 50-class problem is 2%. 
+                Achieving ~51% using zero-shot image feature extraction (without fine-tuning the CNN layers) 
+                proves the viability of the Transfer Learning pipeline.
+            </p>
+        </main>
+    </div>
+</body>
+</html>

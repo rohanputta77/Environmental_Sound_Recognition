@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #ccc;
+}
+
+header {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #222;
+}
+
+.top-nav {
+    margin-top: 15px;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #666;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+.top-nav a:hover {
+    text-decoration: underline;
+}
+
+.top-nav a.active {
+    font-weight: bold;
+    color: #0056b3;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 3px;
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.report-table th, .report-table td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+.report-table th {
+    background-color: #f9f9f9;
+    width: 40%;
+}
+
+.report-note {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    background: #f1f1f1;
+    padding: 15px;
+    border-left: 4px solid #0056b3;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none;
+}
+
+#result-box {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9f7ef;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+#prediction-text {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#loading {
+    margin-top: 15px;
+    font-style: italic;
+    color: #666;
+}
