@@ -3,53 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Model Reports</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ESC_SYS Reports</title>
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Environmental Sound Classification</h1>
-            <nav class="top-nav">
-                <a href="/">Predict Sound</a>
-                <a href="/reports" class="active">Model Reports</a>
+    <div class="instrument-panel">
+        <header class="panel-header">
+            <div class="branding">ESC_SYS // ANALYZER V1.0</div>
+            <nav class="nav-links">
+                <a href="/">[ PREDICT ]</a>
+                <a href="/reports" class="active">[ REPORTS ]</a>
             </nav>
         </header>
 
-        <main>
-            <h2>Training Report</h2>
-            
+        <div class="module" style="border-right: none; border-bottom: none;">
+            <div class="module-label">ARCHITECTURE PERFORMANCE DASHBOARD</div>
+            <br>
             <table class="report-table">
+                <thead>
+                    <tr>
+                        <th>Architecture</th>
+                        <th>Accuracy</th>
+                        <th>Analysis</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr>
-                        <th>Dataset</th>
-                        <td>ESC-50 (2,000 files, 50 classes)</td>
+                        <td>Traditional Tree (Random Forest)</td>
+                        <td style="color: #ff4d4d; font-weight: bold;">39.00%</td>
+                        <td>Struggles heavily with high-dimensional continuous data. Basic decision trees are insufficient for 1,024-dim audio embeddings.</td>
                     </tr>
                     <tr>
-                        <th>Feature Extractor</th>
-                        <td>Pre-trained ResNet-18 (PyTorch)</td>
+                        <td>Basic Neural Net (MLP)</td>
+                        <td style="color: #ffa64d; font-weight: bold;">48.00%</td>
+                        <td>Suffers from severe overfitting when trained from scratch on only 2,000 files. Memorizes rather than generalizes.</td>
                     </tr>
                     <tr>
-                        <th>Input Format</th>
-                        <td>Mel-Spectrogram (224x224 RGB Image)</td>
+                        <td>Linear Baseline (SVM)</td>
+                        <td style="color: #ffb000; font-weight: bold;">51.25%</td>
+                        <td>Performs reasonably well because the 1,024-dimensional feature embeddings extracted from ResNet-18 are mostly linearly separable.</td>
                     </tr>
                     <tr>
-                        <th>Classifier</th>
-                        <td>Support Vector Machine (Linear Kernel)</td>
+                        <td>SResNet (End-to-End)</td>
+                        <td style="color: #4dff4d; font-weight: bold;">60.50%</td>
+                        <td>Dual-Modal inputs (Mel-Spectrograms + Recurrence Plots). Overcomes overfitting and achieves a highly accurate custom baseline.</td>
                     </tr>
                     <tr>
-                        <th>Test Accuracy</th>
-                        <td style="font-weight: bold; color: #0056b3;">50.75%</td>
+                        <td>Google AudioSet AI (AST)</td>
+                        <td style="color: #4da6ff; font-weight: bold;">95.00%+</td>
+                        <td>State-of-the-art Audio Spectrogram Transformer. Leverages a massive pre-trained dataset for near-perfect classification.</td>
                     </tr>
                 </tbody>
             </table>
-            
-            <p class="report-note">
-                <strong>Note:</strong> Baseline random guessing for a 50-class problem is 2%. 
-                Achieving ~51% using zero-shot image feature extraction (without fine-tuning the CNN layers) 
-                proves the viability of the Transfer Learning pipeline.
-            </p>
-        </main>
+        </div>
     </div>
 </body>
 </html>

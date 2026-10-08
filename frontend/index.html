@@ -3,36 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Environmental Sound Classification</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ESC_SYS Analyzer</title>
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Environmental Sound Classification</h1>
-            <nav class="top-nav">
-                <a href="/" class="active">Predict Sound</a>
-                <a href="/reports">Model Reports</a>
+    <div class="instrument-panel">
+        <header class="panel-header">
+            <div class="branding">ESC_SYS // ANALYZER V1.0</div>
+            <nav class="nav-links">
+                <a href="/" class="active">[ PREDICT ]</a>
+                <a href="/reports">[ REPORTS ]</a>
             </nav>
         </header>
 
-        <main>
-            <div class="form-group">
-                <label for="audio-upload">Upload Audio File (.wav):</label>
+        <div class="grid-layout">
+            <!-- Input section -->
+            <div class="module input-module">
+                <div class="module-label">INPUT CONFIG</div>
+                
+                <label>MODEL SELECT</label>
+                <select id="model-select">
+                    <option value="ast_pretrained">Google AudioSet AI (95.00%+)</option>
+                    <option value="sresnet">SResNet Deep Learning (60.50%)</option>
+                    <option value="svm_dual_modal">ResNet-18 + SVM (51.25%)</option>
+                    <option value="mlp_nn">MLP Deep Neural Net (48.00%)</option>
+                    <option value="random_forest">ResNet-18 + Random Forest (39.00%)</option>
+                </select>
+                
+                <label>SOURCE AUDIO (.WAV)</label>
                 <input type="file" id="audio-upload" accept="audio/wav">
+                
+                <button id="predict-btn">EXECUTE ANALYSIS</button>
             </div>
 
-            <button id="predict-btn">Predict Sound</button>
-            
-            <div id="loading" class="hidden">
-                <p>Analyzing...</p>
+            <!-- Waveform visualizer -->
+            <div class="module viz-module">
+                <div class="module-label">WAVEFORM / Fs 22050 Hz</div>
+                <canvas id="waveform-canvas"></canvas>
+                <div id="loading" class="hidden">ANALYZING...</div>
             </div>
 
-            <div id="result-box" class="hidden">
-                <p>Prediction: <span id="prediction-text"></span></p>
+            <!-- Output section -->
+            <div class="module output-module">
+                <div class="module-label">CLASSIFICATION OUT</div>
+                <div id="result-box" class="hidden">
+                    <div class="readout-label">PRIMARY DETECT</div>
+                    <div id="prediction-text">--</div>
+                    
+                    <div class="readout-label">CONFIDENCE</div>
+                    <div class="confidence-bar-container">
+                        <div class="confidence-bar-bg">
+                            <div class="confidence-bar" id="conf-bar" style="width: 0%"></div>
+                        </div>
+                        <span id="conf-value">00.0%</span>
+                    </div>
+                </div>
             </div>
-        </main>
+        </div>
     </div>
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>

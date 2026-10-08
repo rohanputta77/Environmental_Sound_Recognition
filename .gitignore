@@ -1,10 +1,14 @@
-# Python
+# ─── Python ───────────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.egg
+*.egg-info/
+dist/
+build/
 
-# Environments
+# ─── Virtual Environments ────────────────────────────────────────────────────
 .env
 .venv
 env/
@@ -12,9 +16,32 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+libs/
 
-# Project specifics
+# ─── Data & Large Binary Files ───────────────────────────────────────────────
+# Never commit the dataset or its zip to GitHub (too large)
 backend/dataset/
-backend/models/
-backend/uploads/
+backend/dataset.zip
+
+# Trained model weights (too large for GitHub, re-generate by training)
+backend/models/*.pkl
+backend/models/*.pth
+
+# HuggingFace model cache (downloaded automatically on first run)
+backend/hf_cache/
+
+# Temporary uploaded audio files from predictions
+backend/dataset/uploads/
+
+# ─── OS / Editor Junk ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.idea/
+.vscode/
+.agents/
+
+# ─── Test Cache ──────────────────────────────────────────────────────────────
 .pytest_cache/
